@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="poly.persistance.mapper.IGongJiMapper">
+	<select id="getGongJiList" resultType="GongDto">
+	
+	SELECT * FROM GONG
+	
+	</select>
+	
+	<select id="searchGongji" parameterType="GongDto" resultType="GongDto">
+	SELECT 
+		* 
+	FROM 
+		GONG
+	WHERE 
+	 	GONG_TXT LIKE '%' || #{gong_txt} || '%'
+	</select>
+	</mapper>
