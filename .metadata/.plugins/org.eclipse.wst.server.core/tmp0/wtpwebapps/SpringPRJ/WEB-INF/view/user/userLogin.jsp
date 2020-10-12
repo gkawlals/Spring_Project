@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="/user/userLoginProc.do" method="post">
-	<table border='0' cellspacing="0" width="400" height="100" >
+	<table border='1' cellspacing="0" width="400" height="100" >
 		<tr bgcolor="#00bfff" width="400" height="100">
 			<td align="right">
 				<font size="2"> 아이디 : </font>

@@ -28,7 +28,6 @@ public class GongJiController {
 	public String GongJi(HttpServletRequest request, ModelMap model) {
 		
 		List<GongDto> rList = GongJiService.getGongJiList();
-
 		if (rList == null) {
 			rList = new ArrayList<>();
 		}
@@ -39,9 +38,10 @@ public class GongJiController {
 
 		for (GongDto e : rList) {
 
-			log.info("GongJiList 1번 : " + e.getGong_nm());
+			log.info("GongJiList " + e.getGong_nm() + "번 ");
+			log.info("GongJiTitle : " + e.getGong_tit());
 
-		}
+		}	
 		log.info("GongjiList 끝내기 ");
 		return "/board/gongji";
 	}
@@ -53,10 +53,10 @@ public class GongJiController {
 
 		log.info("searchList 시작");
 		//jsp에서 값을 받아오는 구문
-		String Gong_txt = CmmUtil.nvl(request.getParameter("gong_txt"));
-		log.info(Gong_txt);
+		String Gong_tit = CmmUtil.nvl(request.getParameter("gong_tit"));
+		log.info(Gong_tit);
 		GongDto pDTO = new GongDto();
-		pDTO.setGong_txt(Gong_txt);
+		pDTO.setGong_tit(Gong_tit);
 		
 		List<GongDto> rList = GongJiService.searchGongji(pDTO);
 

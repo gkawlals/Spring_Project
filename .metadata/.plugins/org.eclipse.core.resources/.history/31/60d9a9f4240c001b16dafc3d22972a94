@@ -1,0 +1,9 @@
+package poly.persistance.mapper;
+
+import config.Mapper;
+
+
+@Mapper("MovieMapper")
+public interface IMovieMapper {
+
+}

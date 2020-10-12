@@ -25,7 +25,7 @@ public class GongJiService implements IGongJiService {
 	@Override
 	public List<GongDto> searchGongji(GongDto pDTO) {
 		// TODO Auto-generated method stub
-		return null;
+		return GongJiMapper.searchGongji(pDTO);
 	}
 
 }

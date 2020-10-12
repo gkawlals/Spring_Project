@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import poly.dto.BoardDto;
-import poly.dto.GongDto;
 import poly.service.IBoardService;
 import poly.util.CmmUtil;
 

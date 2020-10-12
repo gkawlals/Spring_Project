@@ -25,7 +25,7 @@
 <table border="1" id="gongjiList">
 	<tr>
 		<td>공지번호</td>
-		<td>공지 글</td>
+		<td>공지 제목</td>
 		<td>작성자 </td>
 	</tr>
 			<%
@@ -33,7 +33,7 @@
 			%>
 			<tr>
 				<td><%=e.getGong_nm()%></td>
-				<td><a href="/board/gonghjiDetail.do?no=<%=e.getGong_nm()%>"><%=e.getGong_txt()%></a></td>
+				<td><a href="/board/gonghjiDetail.do?no=<%=e.getGong_nm()%>"><%=e.getGong_tit()%></a></td>
 				<td><%=e.getGong_id()%></td>
 
 			</tr>
@@ -45,20 +45,20 @@
 <script>
 	function search() {
 		alert("test");
-		var gong_txt = $('#gong_txt').val();
-		alert("제목 : " + gong_txt);
-		if ($('#gong_txt').val() == "") {
-			$('#gong_txt').focus();
+		var gong_tit = $('#gong_txt').val();
+		alert("제목 : " + gong_tit);
+		if ($('#gong_tit').val() == "") {
+			$('#gong_tit').focus();
 			return false;
 		}
 
-		console.log("gong_txt : " + gong_txt);
+		console.log("gong_tit : " + gong_txt);
 
 		$.ajax({
 			url : '/board/searchGongji.do',
 			type : 'post',
 			data : {
-				"gong_txt" : gong_txt
+				"gong_tit" : gong_tit
 			},
 			success : function(data) {
 				console.log("test");
@@ -84,7 +84,7 @@
 					for (var i = 0; i < data.length; i++) {
 						resHTML += '<tr>';
 						resHTML += '<td>' + data[i].gong_nm + '</td>';
-						resHTML += '<td>' + data[i].gong_txt + '</td>';
+						resHTML += '<td>' + data[i].gong_tit + '</td>';
 						resHTML += '<td>' + data[i].gong_id + '</td>';
 						resHTML += '</tr>';
 					}

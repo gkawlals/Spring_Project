@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@page import="java.util.List"%>
+<%@page import="poly.dto.UserDto"%>
+<%@page import="poly.util.CmmUtil"%>
+<%
+	List<UserDto> rList = (List<UserDto>) request.getAttribute("rList");
+%>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>socket test</title>
+</head>
+<body>
+<input type="text" value=" test succes">
+</body>
+<div class="searchList">
+		<table border='1' id="searchLsit">
+			<tr>
+				<td>글 번호</td>
+				<td>제목</td>
+				<td>게시일</td>
+				<td>게시자</td>
+			</tr>
+
+			<%
+				for (UserDto e : rList) {
+			%>
+			<tr>
+				<td><%=e.getPost_no()%></td>
+				<td><a href="/board/boardDetail.do?no=<%=e.getPost_no()%>"><%=e.getPost_title()%></td>
+				</a>
+				<td><%=e.getReg_dt()%></td>
+				<td><%=e.getReg_id()%></td>
+
+			</tr>
+			<%
+				}
+			%>
+		</table>
+</html>

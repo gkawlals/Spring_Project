@@ -2,6 +2,7 @@ package poly.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -27,6 +28,7 @@ public class UserController {
 	@RequestMapping(value="user/userLogin")
 	// 여기서는 로그인 jsp와 연동 및 디비 데이터 전달 
 	public String userLogin() {
+		
 		log.info(this.getClass()+"user/userLogin start");
 		log.info(this.getClass()+"user/userLogin end");
 		
@@ -34,37 +36,45 @@ public class UserController {
 	}
 	
 	//로그인 id password확인하기
-	@RequestMapping(value="user/userLoginProc")
-	public String userLoginProc(HttpServletRequest request, HttpSession se, ModelMap model) {
+	@RequestMapping(value="user/userLoginProc.do")
+	public String userLoginProc(HttpServletRequest request, HttpSession se, ModelMap model, HttpServletResponse responese) throws Exception {
 		log.info(this.getClass()+"user/userLoginProc start");
 		// 아이디 받고 받는걸 확인 하는 문구
 		// nvl은 널값을 표현하지 않는 함수를 사용함 
+
 		String user_id = CmmUtil.nvl(request.getParameter("user_id"));
 		
-		String name = CmmUtil.nvl(request.getParameter("name"));
+		//String name = CmmUtil.nvl(request.getParameter("name"));
 		
 		// 비밀번호 받고 받는걸 확인 하는 문구
 		String password = CmmUtil.nvl(request.getParameter("password"));
-
+		
 		String msg = "";
 		String url = "";
 		
-		UserDto uDto = new UserDto();
-		uDto.setUser_id(user_id);
-		uDto.setPassword(password);
+		log.info("user_id : " + user_id);
+		log.info("password : " + password);
 		
-		uDto = userService.getLoginInfo(uDto);
+		UserDto pDTO = new UserDto();
 		
-		if(uDto == null) {
+		pDTO.setUser_id(user_id);
+		pDTO.setPassword(EncryptUtil.encHashSHA256(password));
+		
+		UserDto rDTO = userService.getLoginInfo(pDTO);
+		
+		
+		if(rDTO == null) {
 			msg="로그인 실패";
 		}
 		else {
 			log.info("user_id : " + user_id);
 			log.info("password : " + password);
 			msg="로그인 성공";
-			se.setAttribute("user_id", uDto.getUser_id());
-			se.setAttribute("password", uDto.getPassword());
-			se.setAttribute("name", uDto.getName());
+
+			se.setAttribute("user_id", rDTO.getUser_id());
+			se.setAttribute("password", rDTO.getPassword());
+			se.setAttribute("name", rDTO.getName());
+			
 			
 		}
 		
@@ -73,7 +83,7 @@ public class UserController {
 		model.addAttribute("msg",msg);
 		model.addAttribute("url", url);
 		log.info(this.getClass()+"user/userLoginProc end");
-		return "/redirect"; //"/alert"
+		return "/redirect";
 	}
 	
 	@RequestMapping(value="user/userLogout")
@@ -140,6 +150,7 @@ public class UserController {
 		
 
 		int res = userService.newUser(uDto);
+		log.info(res);
 
 
 		if (res < 1) {

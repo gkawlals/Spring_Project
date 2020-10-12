@@ -1,0 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="java.util.List"%>
+<%@page import="poly.dto.UserDto"%>
+<%@page import="poly.util.CmmUtil"%>
+<%
+	List<UserDto> rList = (List<UserDto>) request.getAttribute("rList");
+%>
+
+<html>
+<head>
+<script type="text/javascript">
+	function innerHTMLTest(){
+			alert("test")
+			var randValNode = document.getElementById("rand_val");
+			randValNode.innerHTML = " <b> <font color= 'red' >"+ Math.random() + " </font> </b> ";
+	}
+	
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<!-- top 시작 -->
+	<div>
+	<%@ include file="/WEB-INF/view/user/top.jsp" %>
+	</div>
+	<!-- top 끝 -->
+	와! 스프링 아시는구나! 참고로 겁.나.어.렵.습.니.다
+			<div id="rand_val"> Let's generata random Value</div>
+			<button onclick="innerHTMLTest()">Generata</button>
+			<br><br>
+			<button onclick="location.href='/chat.do'">채팅방 </button>
+			<!-- 현제 로그인 유저를 알수 없어 로그아웃 유저 불러오기  -->
+			<button onclick="location.href='user/UserList.do'">로그인유저 </button>
+			<!-- <button type="button" onclick="location.herf='openSocket()'">Open</button> <!-- locationhref chat/chatstart  -->
+			<a href="/mail/sendMail.do">메일보내기</a>
+			
+			<div class="searchList">
+		<table border='1' id="searchLsit">
+			<tr>
+				<td>User ID</td>
+				<td>User NAME</td>
+			</tr>
+
+			<%
+				for (UserDto e : rList) {
+			%>
+			<tr>
+				<td><%=e.getUser_id()%></td>
+				<td><%=e.getName()%></td>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+</div>
+
+<script>
+	function search() {
+		//alert("test");
+		var user_id = $('#user_id').val();
+		//alert("제목 : " + post_title);
+		if ($('#user_id').val() == "") {
+			$('#user_id').focus();
+			return false;
+		}
+
+		console.log("user_id : " + user_id);
+
+		$.ajax({
+			url : '/redirect',
+			type : 'post',
+			data : {
+				"user_id" : user_id
+			},
+			success : function(data) {
+				console.log("test");
+				console.log(data)
+
+				var resHTML = "";
+				resHTML += '<tr>';
+				resHTML += '<td>User_ID</td>';
+				resHTML += '<td>User NAME</td>';
+				resHTML += '</tr>';
+
+				if (data.length == 0) {
+
+					resHTML += '<tr>';
+					resHTML += '<td>-</td>';
+					resHTML += '<td>-</td>';
+					resHTML += '</tr>';
+
+				} else {
+
+					for (var i = 0; i < data.length; i++) {
+						resHTML += '<tr>';
+						resHTML += '<td>' + data[i].user_id + '</td>';
+						resHTML += '<td>' + data[i].name + '</td>';
+						resHTML += '</tr>';
+					}
+
+				}
+				$("#searchLsit").html(resHTML);
+
+			}
+		})
+	}
+</script>
+</body>
+</html>

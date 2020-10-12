@@ -1,0 +1,27 @@
+package poly.service.impl;
+
+import javax.annotation.Resource;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+import poly.persistance.mapper.IFoodMapper;
+import poly.service.IFoodService;
+
+@Service("FoodService")
+public class FoodService implements IFoodService{
+
+	@Override
+	public int getFoodInfoFromWEB() throws Exception {
+		
+		
+		@Resource(name="FoodMapper")
+		private IFoodMapper foodMapper;
+		
+		private Logger log = Logger.getLogger(this.getClass());
+		
+		
+		return res ;
+	}
+
+}

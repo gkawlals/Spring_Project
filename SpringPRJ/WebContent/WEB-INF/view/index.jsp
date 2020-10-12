@@ -29,7 +29,6 @@ table, th, td {
 			<div id="rand_val"> Let's generata random Value</div>
 			<button onclick="innerHTMLTest()">Generata</button>
 			<br><br>
-			
 			<a href="/mail/sendMail.do">메일보내기</a>
 </body>
 </html>

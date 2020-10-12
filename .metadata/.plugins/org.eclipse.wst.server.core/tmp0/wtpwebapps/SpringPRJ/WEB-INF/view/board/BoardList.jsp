@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- top Start  -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta charset="UTF-8">
@@ -28,7 +29,7 @@
 				onclick="JavaScript:search();" value="검색" />
 		</div>
 	</div>
-
+	<div id="subject"> <input type="text" valuse="여자친구"></div>
 	<div id="resContainer"></div>
 	<div class="searchList">
 		<table border='1' id="searchLsit">

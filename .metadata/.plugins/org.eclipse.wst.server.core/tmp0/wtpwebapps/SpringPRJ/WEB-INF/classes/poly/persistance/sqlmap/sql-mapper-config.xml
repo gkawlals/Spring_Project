@@ -10,5 +10,7 @@
 		<typeAlias type="poly.dto.GongDto" alias="GongDto"/>
 		<typeAlias type="poly.dto.MailDto" alias="MailDto"/>
 		<typeAlias type="poly.dto.UserDto" alias="UserDto"/>
+		<typeAlias type="poly.dto.MovieDto" alias="MovieDto"/>
+		<typeAlias type="poly.dto.FoodDto" alias="FoodDto"/>
     </typeAliases>
 </configuration>

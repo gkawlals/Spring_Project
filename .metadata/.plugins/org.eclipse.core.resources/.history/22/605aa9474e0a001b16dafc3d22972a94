@@ -1,0 +1,15 @@
+package poly.service.impl;
+
+import poly.dto.UserDto;
+import poly.service.IChatService;
+import poly.service.Lsit;
+
+public class ChatService implements IChatService{
+
+	@Override
+	public Lsit<UserDto> UserList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

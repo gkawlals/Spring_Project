@@ -1,7 +1,14 @@
 package poly.service.impl;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Properties;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -15,6 +22,7 @@ import org.springframework.stereotype.Service;
 import poly.dto.MailDto;
 import poly.service.IMailService;
 import poly.util.CmmUtil;
+import poly.util.EncryptUtil;
 
 
 @Service("MailService")
@@ -30,9 +38,10 @@ public class MailService implements IMailService {
 	
 	
 	@Override
-	public int sendMailResult(MailDto pDTO) {
-			//재대로 시작이 되는지 확인하는 문구 
-			System.out.printf("service 시작 ");
+	public int sendMailResult(MailDto pDTO) throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+			
+		//재대로 시작이 되는지 확인하는 문구 
+			System.out.printf("Mail service 시작 ");
 			
 			
 			//res가 성공하면 1, 실패하면 0이다.

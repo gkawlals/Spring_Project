@@ -1,0 +1,10 @@
+package poly.service;
+
+
+import poly.dto.UserDto;
+
+public interface IChatService  {
+
+	List<UserDto> UserList();
+
+}

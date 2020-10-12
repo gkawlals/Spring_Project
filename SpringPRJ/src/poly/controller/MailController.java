@@ -1,6 +1,14 @@
 package poly.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.annotation.Resource;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import poly.dto.MailDto;
 import poly.service.IMailService;
 import poly.util.CmmUtil;
+import poly.util.EncryptUtil;
 
 @Controller
 public class MailController {
@@ -34,7 +43,7 @@ public class MailController {
 	}
 	
 	@RequestMapping(value = "/mail/sendMailResult", method = RequestMethod.POST)
-	public String sendMailResult(HttpSession session,HttpServletRequest request, HttpServletResponse response, ModelMap model ){
+	public String sendMailResult(HttpSession session,HttpServletRequest request, HttpServletResponse response, ModelMap model ) throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException{
 		
 		log.info("sendMailResult Start");
 		//DTO불러오기 

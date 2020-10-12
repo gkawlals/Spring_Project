@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@page import="java.util.List"%>
+<%@page import="poly.dto.UserDto"%>
+<%@page import="poly.util.CmmUtil"%>
+<%
+	List<UserDto> rList = (List<UserDto>) request.getAttribute("rList");
+%>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>socket test</title>
+</head>
+<body>
+<input type="text" value=" test succes">
+</body>
+<div class="searchList">
+		<table border='1' id="searchLsit">
+			<tr>
+				<td>User ID</td>
+				<td>User NAME</td>
+			</tr>
+
+			<%
+				for (UserDto e : rList) {
+			%>
+			<tr>
+				<td><%=e.getUser_id()%></td>
+				<td><%=e.getName()%></td>
+
+
+			</tr>
+			<%
+				}
+			%>
+		</table>
+</html>

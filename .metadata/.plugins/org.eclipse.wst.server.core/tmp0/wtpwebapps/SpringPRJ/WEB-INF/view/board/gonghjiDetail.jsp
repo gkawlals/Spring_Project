@@ -8,18 +8,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><%=rDTO.getGong_txt()%></title>
+<title><%=rDTO.getGong_tit()%></title>
 </head>
 <body>
 	<div style="width: 800px;">
-		<h4><%=rDTO.getGong_txt()%></h4>
+		<h4><%=rDTO.getGong_tit()%></h4>
 
 		<hr>
 
 		<div style="text-align: right;">
 			작성자 :
 			<%=rDTO.getGong_id()%></div>
-		<div>
+		<div>내용 : 
 			<p><%=rDTO.getGong_txt()%></p>
 		</div>
 		<hr>
