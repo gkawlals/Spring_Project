@@ -3,11 +3,11 @@
 <mapper namespace="poly.persistance.mapper.IUserMapper">
 
 <select id="getLoginInfo" parameterType="UserDto" resultType="UserDto">
-SELECT USER_ID, PASSWORD, NAME, EMAIL FROM USERTABLE WHERE USER_ID=#{user_id} AND PASSWORD=#{password}
+SELECT USER_ID, PASSWORD, NAME, USER_NO, EMAIL FROM USERTABLE WHERE USER_ID=#{user_id} AND PASSWORD=#{password}
 </select>
 
 <select id="UserList" parameterType="UserDto" resultType="UserDto">
-SELECT USER_ID, NAME FROM USERTABLE WHERE USER_IN = 'fasle'
+SELECT USER_ID, NAME FROM USERTABLE WHERE USER_IN = 'true'
 </select>
 
 <insert id="newUser" parameterType="UserDto" >
@@ -25,11 +25,11 @@ USER_SEQ.NEXTVAL,
 #{email}
 )
 </insert>
-<update id="getUserIn" parameterType="UserDto" >
-	UPDATE USERTABLE SET USER_IN = "'true'"
-</update>
 <update id="getUserOut" parameterType="UserDto" >
-	UPDATE USERTABLE SET USER_IN = "'false'"
+	UPDATE USERTABLE SET USER_IN = "'true'" WHERE USER_NO = #{user_no}
+</update>
+<update id="getUserIn" parameterType="UserDto" >
+	UPDATE USERTABLE SET USER_IN = "'false'" WHERE USER_NO = #{user_no}
 </update>
 <select id="getUserExists" parameterType="UserDto" resultType="UserDto">
 	<!-- 이문구는  -->

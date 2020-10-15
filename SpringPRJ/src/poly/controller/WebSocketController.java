@@ -42,27 +42,6 @@ public class WebSocketController {
 	@Resource(name = "UserService")
 	IUserService UserService;
 	
-	@RequestMapping(value="/user/UserList.do")
-	public String ChatUserList(ModelMap model) {
-		
-		List<UserDto> rList = UserService.getUserList();
-		if (rList == null) {
-			rList = new ArrayList<>();
-		}
-
-		model.addAttribute("rList", rList);
-
-		log.info("BoardList 불러오기");
-
-		for (UserDto e : rList) {
-
-			log.info("BoardList 1번 : " + e.getUser_no());
-
-		}
-	return "/user/UserList.do";
-		
-	}
-	
 	//@RequestMapping(value = "/user/UserList.do")
 	//public String UserList(ModelMap model) { 
 	//	log.info("userList 불러오기 시작 ");

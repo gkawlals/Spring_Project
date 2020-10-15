@@ -38,21 +38,9 @@ public class UserService implements IUserService{
 	@Override
 	public UserDto getLoginInfo(UserDto pDTO) throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException  {
 		// TODO Auto-generated method stub
-		log.info("userlogin start ");
+		log.info("userlogin start "); 
 
 		UserDto rDTO = UserMapper.getLoginInfo(pDTO);
-	//	String user_idR = rDTO.getUser_id();
-	//	String pwdR = rDTO.getPassword();
-	//	
-	//	if(user_idR.isEmpty()) 
-	//	{
-	//		
-	//		log.info(" 아이디 및 비밀번호를 입력해주세요 ");
-	//		
-	//	}else if (pwdR.isEmpty()) {
-	//		
-	//	}
-		
 		
 		MailDto mDTO = new MailDto();
 		
@@ -64,10 +52,12 @@ public class UserService implements IUserService{
 		
 		
 		MailService.sendMailResult(mDTO);
+		//log.info(this.getClass() + pDTO.getUser_no());
 		log.info(this.getClass() + pDTO.getPassword());
 		log.info(this.getClass() + pDTO.getUser_id());
 
 		log.info("userlogin end ");
+		
 		return UserMapper.getLoginInfo(pDTO);
 	}
 	
@@ -116,9 +106,24 @@ public class UserService implements IUserService{
 	}
 
 	@Override
-	public List<UserDto> getUserList() {
-		// TODO Auto-generated method stub
+	public List<UserDto> UserList() {
+
 		return UserMapper.UserList();
+	}
+
+	@Override
+	public UserDto getUserOut(UserDto pDTO) {
+		log.info(this.getClass().getName() + " start ! getUserOut ");
+		
+		
+		UserDto rDTO = UserMapper.getUserOut(pDTO);
+		
+		if(rDTO == null) {
+			rDTO = new UserDto();
+		}
+		
+		
+		return UserMapper.getUserOut(pDTO);
 	}
 
 

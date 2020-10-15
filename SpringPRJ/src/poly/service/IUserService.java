@@ -19,6 +19,8 @@ public interface IUserService {
 
 	int newUser(UserDto uDto) throws Exception;
 
-	List<UserDto> getUserList();
+	List<UserDto> UserList();
+
+	UserDto getUserOut(UserDto pDTO);
 
 }

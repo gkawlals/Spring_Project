@@ -32,6 +32,7 @@
 				}
 			%>
 		</table>
+		</div>
 </body>
 <script>
 	function UserList() {

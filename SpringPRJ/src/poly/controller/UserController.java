@@ -1,5 +1,8 @@
 package poly.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +27,28 @@ public class UserController {
 	IUserService userService;
 	
 	
+	//userList를 만드는 컨트롤러
+	@RequestMapping(value="/user/UserList")
+	public String UserList (ModelMap model) {
+		log.info(this.getClass() + "userList start ! ");
+		
+		List<UserDto> rList = userService.UserList();
+		if(rList == null ) {
+			rList = new ArrayList<>();
+		}
+		model.addAttribute("rList", rList);
+		log.info(this.getClass() + "userList end ! ");
+		
+		for (UserDto e : rList) {
+
+			log.info("UserList 1번 : " + e.getUser_no());
+
+		}
+		
+		return "/user/UserList";
+	}
+	
+	
 	// 아래는 로그인 화면 반환하기
 	@RequestMapping(value="user/userLogin")
 	// 여기서는 로그인 jsp와 연동 및 디비 데이터 전달 
@@ -41,7 +66,7 @@ public class UserController {
 		log.info(this.getClass()+"user/userLoginProc start");
 		// 아이디 받고 받는걸 확인 하는 문구
 		// nvl은 널값을 표현하지 않는 함수를 사용함 
-
+		//String user_no = CmmUtil.nvl(request.getParameter("user_no"));
 		String user_id = CmmUtil.nvl(request.getParameter("user_id"));
 		
 		//String name = CmmUtil.nvl(request.getParameter("name"));
@@ -51,12 +76,12 @@ public class UserController {
 		
 		String msg = "";
 		String url = "";
-		
+		//log.info("user_no :" + user_no);
 		log.info("user_id : " + user_id);
 		log.info("password : " + password);
 		
 		UserDto pDTO = new UserDto();
-		
+		//pDTO.setUser_no(user_no);
 		pDTO.setUser_id(user_id);
 		pDTO.setPassword(EncryptUtil.encHashSHA256(password));
 		
@@ -69,16 +94,18 @@ public class UserController {
 		else {
 			log.info("user_id : " + user_id);
 			log.info("password : " + password);
+			
 			msg="로그인 성공";
-
+			
+			se.setAttribute("user_no", rDTO.getUser_no());
 			se.setAttribute("user_id", rDTO.getUser_id());
 			se.setAttribute("password", rDTO.getPassword());
 			se.setAttribute("name", rDTO.getName());
 			
-			
+			//rDTO = userService.getUserOut(pDTO);
 		}
 		
-		url = "/";
+		url = "/redirect";
 		
 		model.addAttribute("msg",msg);
 		model.addAttribute("url", url);

@@ -16,6 +16,8 @@ public interface IUserMapper {
 	
 	List<UserDto> UserList();
 	
+	UserDto getUserOut(UserDto pDTO);
+	
 	//List<UserDto> getUserlist();
 
 }

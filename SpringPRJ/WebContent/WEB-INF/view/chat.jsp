@@ -34,7 +34,7 @@
 					return;
 				writeResponse(event.data);
 			};
-			ws.onmessage = function(event) {
+			ws.onmessage = function(event) 
 				writeResponse(event.data);
 			};
 			ws.onclose = function(event) {
@@ -44,6 +44,7 @@
 		function send() {
 			var text = document.getElementById("messageinput").value + ","
 					+ document.getElementById("sender").value;
+			
 			ws.send(text);
 			text = "";
 		}
