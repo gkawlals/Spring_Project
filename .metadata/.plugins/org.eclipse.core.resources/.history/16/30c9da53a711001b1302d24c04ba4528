@@ -1,0 +1,24 @@
+package poly.service.impl;
+
+import java.io.File;
+
+import org.apache.log4j.Logger;
+
+import poly.dto.OcrDto;
+import poly.service.IOcrService;
+import poly.util.CmmUtil;
+
+public class OcrService implements IOcrService {
+
+	
+	private Logger log = Logger.getLogger(this.getClass());
+	
+	@Override
+	public OcrDto getReadforImageText(OcrDto pDTO) throws Exception {
+		
+		log.info(this.getClass().getName() + " .getDeepRunning start ! ");
+		File imageFile = new File(CmmUtil.nvl(pDTO.getFilePath()) + "//" + CmmUtil.nvl(pDTO.getFileName()));
+		return null;
+	}
+
+}

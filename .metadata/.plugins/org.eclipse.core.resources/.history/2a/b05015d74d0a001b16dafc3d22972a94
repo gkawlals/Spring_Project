@@ -1,7 +1,0 @@
-package poly.service.impl;
-
-import poly.service.IChatService;
-
-public class ChatService implements IChatService{
-
-}

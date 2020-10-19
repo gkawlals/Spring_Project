@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@page import="poly.dto.UserDto" %>
+<%@page import="poly.util.CmmUtil" %>
+<% 
+	String User_id = CmmUtil.nvl((String)session.getAttribute("user_id"));
+%>
 <html>
 <head>
 <meta charset="UTF-8">

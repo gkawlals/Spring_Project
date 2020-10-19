@@ -11,6 +11,8 @@ INDEX VERSION 1.131
 /spring-chat-master/src/main/java
 /Users/hamjimin/Spring_Project/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1316185212.index
 /SpringPRJ/src
+/Users/hamjimin/Spring_Project/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/383596993.index
+/SpringPRJ/src
 /Users/hamjimin/Spring_Project/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/936227376.index
 /SpringPRJ/src
 /Users/hamjimin/Spring_Project/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2793226399.index

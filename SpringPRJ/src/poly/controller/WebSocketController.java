@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -39,21 +42,7 @@ public class WebSocketController {
 	@Resource(name = "ChatService")
 	IChatService ChatService;
 	
-	@Resource(name = "UserService")
-	IUserService UserService;
 	
-	//@RequestMapping(value = "/user/UserList.do")
-	//public String UserList(ModelMap model) { 
-	//	log.info("userList 불러오기 시작 ");
-	//	List<UserDto> rList = ChatService.UserList();
-	//	
-	//	if(rList == null ) {
-	//		rList = new ArrayList<>();
-	//	}
-	//	model.addAttribute("rList",rList);
-	//	
-	//	return "/user/UserList.do";
-	//}
 	@RequestMapping(value = "/chat.do")
 	public ModelAndView getChatViewPage(ModelAndView mav) {
 		mav.setViewName("/chat");
@@ -63,9 +52,10 @@ public class WebSocketController {
 	@OnOpen
 	public void onOpen(Session session) {
 		
-		log.info("Open session id:" + session.getId());
 		
-		//model.addAttribute("rList",rList);
+		//UserDto pDTO = new UserDto();
+		
+		//log.info("Open session id:" + session.get("user_id"));
 		
 		try {
 			final Basic basic = session.getBasicRemote();

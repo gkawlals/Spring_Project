@@ -1,0 +1,27 @@
+package poly.controller;
+
+import javax.annotation.Resource;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+
+import poly.service.IOcrService;
+
+@Controller
+public class OcrController {
+	
+	private Logger log = Logger.getLogger(this.getClass());
+	
+	@Resource(name = "OcrService")
+	private IOcrService ocrService;
+	
+	final private String FILE_UPLOAD_SAVE_PATH = "/Users/hamjimin/upload"; // 경로에 파일을 저장 
+	
+	@RequestMapping(value = " ocr/imageFileUpload")
+	public String Index() {
+		log.info(this.getClass().getName() + " .imageFileUpload!");
+		
+		return "/ocr/ImageFileUpload";
+	}
+
+}
