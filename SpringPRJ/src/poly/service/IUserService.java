@@ -23,4 +23,8 @@ public interface IUserService {
 
 	UserDto getUserOut(UserDto pDTO);
 
+	int ChUserImg(UserDto pDTO);
+
+	
+
 }

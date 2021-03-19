@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	String user_no = (String)session.getAttribute("user_no");
+%>
 <html>
 <head>
 <script type="text/javascript">
@@ -29,6 +32,8 @@ table, th, td {
 			<div id="rand_val"> Let's generata random Value</div>
 			<button onclick="innerHTMLTest()">Generata</button>
 			<br><br>
+			<div> <%=user_no%></div>
 			<a href="/mail/sendMail.do">메일보내기</a>
+			<a href="/user/profile.do"> 이미지 변경 테스트</a>
 </body>
 </html>

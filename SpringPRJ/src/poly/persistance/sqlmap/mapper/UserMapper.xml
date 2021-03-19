@@ -25,12 +25,16 @@ USER_SEQ.NEXTVAL,
 #{email}
 )
 </insert>
-<update id="getUserOut" parameterType="UserDto" >
-	UPDATE USERTABLE SET USER_IN = "'true'" WHERE USER_NO = #{user_no}
+
+<update id="ChUserImg" parameterType="UserDto">
+	UPDATE USERTABLE 
+	SET 
+	USER_IMG = #{user_img} 
+	WHERE 
+	USER_NO = #{user_no}
 </update>
-<update id="getUserIn" parameterType="UserDto" >
-	UPDATE USERTABLE SET USER_IN = "'false'" WHERE USER_NO = #{user_no}
-</update>
+
+
 <select id="getUserExists" parameterType="UserDto" resultType="UserDto">
 	<!-- 이문구는  -->
 	SELECT DECODE(COUNT(1), 0, 'N','Y') AS EXISTS_YN

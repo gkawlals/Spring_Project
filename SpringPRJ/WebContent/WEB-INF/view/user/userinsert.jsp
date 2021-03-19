@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="poly.util.CmmUtil"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +8,17 @@
 <title>로그인 화면</title>
 <script type="text/javascript">
 	function newUser(f){
-	if(f.user_id.value==""){
-		alert("아이디를 입력해주세요 ");
-		f.user_id.focus();
-		return false;
-	}if(f.password.value==""){
-		alert("비밀번호를 입력해주세요 ");
-		f.password.focus();
-	}
+	
+		var 
+		
+		if(f.user_id.value==""){
+			alert("아이디를 입력해주세요 ");
+			f.user_id.focus();
+			return false;
+		}if(f.password.value==""){
+			alert("비밀번호를 입력해주세요 ");
+			f.password.focus();
+		}
 	}
 </script>
 </head>

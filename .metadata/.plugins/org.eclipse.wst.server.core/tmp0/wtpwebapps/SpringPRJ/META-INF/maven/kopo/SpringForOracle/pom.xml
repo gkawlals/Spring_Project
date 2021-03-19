@@ -22,9 +22,54 @@
 			<name>ORACLE JDBC Repository</name>
 			<url>http://maven.jahia.org/maven2</url>
 		</repository>
+		<!--  자연어처리 - 형태소분석기 (Komoran 다운로드를 위한 레파지토리등록 ) -->
+		<repository>
+			<id>jitqack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
 	</repositories>
-
+	
 	<dependencies>
+	<!-- commons-io가 있어야 업로드가 된다 -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.8.0</version>
+		</dependency>
+
+	<!-- 이미지 업로드를 위한 api -->
+		<dependency>
+			<groupId>org.imgscalr</groupId>
+			<artifactId>imgscalr-lib</artifactId>
+			<version>4.2</version>
+		</dependency>
+		
+		<dependency> 
+			<groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.4</version>
+		</dependency>
+	
+	<!-- request body 사용시, json 변환이 안되는 경우 추가한 -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.6</version>
+		</dependency>
+		<!--JSON형태의 데이터 생성 및 내용 읽기을 위한 라이브러리 다운로드 -->
+		
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+	<!-- Komoran 3.3.4 -->
+		<dependency>
+			<groupId>com.github.shin285</groupId>
+			<artifactId>KOMORAN</artifactId>
+			<version>3.3.4</version>
+		</dependency>
+		
 		<!--웹 크롤링을 위한 jsonp 외부라이브러리 추가  -->
 		<dependency>
 			<groupId>org.jsoup</groupId>
@@ -32,11 +77,11 @@
 			<version>1.12.1</version>
 		</dependency>
 		
-		<dependency>
+	<!--<dependency>
 			<groupId>net.sourceforge.tess4j</groupId>
 			<artifactId>tess4j</artifactId>
 			<version>4.4.1</version>
-		</dependency>
+		</dependency>  -->
 		
 		<dependency>
 			<groupId>javax.mail</groupId>

@@ -51,4 +51,5 @@
 	<delete id="getDeletePost"  parameterType="BoardDto">
 	DELETE FROM BOARD WHERE POST_NO=#{post_no}
 	</delete>
+	
 </mapper>

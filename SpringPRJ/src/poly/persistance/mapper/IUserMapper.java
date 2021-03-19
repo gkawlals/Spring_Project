@@ -18,6 +18,9 @@ public interface IUserMapper {
 	
 	UserDto getUserOut(UserDto pDTO);
 	
+	int ChUserImg(UserDto pDTO);
+	
 	//List<UserDto> getUserlist();
-
+	
+	
 }

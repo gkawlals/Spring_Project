@@ -62,7 +62,9 @@ public class UserService implements IUserService{
 	}
 	
 	@Override
-	public int newUser(UserDto uDto) throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+	public int newUser(UserDto uDto) throws InvalidKeyException, 
+	UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException,
+	InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
 		// TODO Auto-generated method stub
 		int res = 0;
 		
@@ -122,9 +124,18 @@ public class UserService implements IUserService{
 			rDTO = new UserDto();
 		}
 		
+		log.info(this.getClass().getName() + " end ! getUserOut ");
 		
 		return UserMapper.getUserOut(pDTO);
 	}
+
+	@Override
+	public int ChUserImg(UserDto pDTO) {
+		
+		return UserMapper.ChUserImg(pDTO);
+	}
+
+	
 
 
 }

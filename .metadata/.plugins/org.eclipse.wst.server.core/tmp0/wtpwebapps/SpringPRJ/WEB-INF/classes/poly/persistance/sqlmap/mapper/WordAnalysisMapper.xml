@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IWordAnlysisMapper">
+<insert id="getWordInsert" parameterType="WordAnalysisDTO">
+	INSERT INTO DATA_DIC (
+	DATA_NO,
+	DATA_NAME
+	)VALUES(
+	DATA_SEQ.NEXTVAL,
+	#{data_name}
+	) WHERE NOT EXISTS( 
+	SELECT DATA_NAME FROM DATA_DIC WHERE DATA_NAME = #{data_name}	
+	)
+</insert>
+</mapper>

@@ -15,7 +15,12 @@
  	<bean class="config.MapperConfigurer">
 		<property name="basePackage" value="poly.persistance.mapper" />
 	</bean>
-    
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize"> 
+	    	<value>50000000</value> 
+	    </property>
+	</bean>
+	
 </beans>
 
 

@@ -1,7 +1,0 @@
-package poly.util;
-
-public class FileUtil {
-	
-	String path = uploadDir + DateUtil.getDateTime("/yyyy/MM/dd");
-	
-}

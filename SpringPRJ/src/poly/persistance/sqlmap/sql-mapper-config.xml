@@ -12,5 +12,7 @@
 		<typeAlias type="poly.dto.UserDto" alias="UserDto"/>
 		<typeAlias type="poly.dto.MovieDto" alias="MovieDto"/>
 		<typeAlias type="poly.dto.FoodDto" alias="FoodDto"/>
+		<typeAlias type="poly.dto.NlpDTO" alias="NlpDTO"/>
+		<typeAlias type="poly.dto.NlpDTO" alias="WordAnalysisDTO"/>
     </typeAliases>
 </configuration>

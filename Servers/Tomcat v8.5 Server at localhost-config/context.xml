@@ -25,4 +25,6 @@
     <!--
     <Manager pathname="" />
     -->
+    <resources mapping="/resources/**" location="/resources/" />
+    <resources mapping="/img/**" location="file:///Users/hamjimin/Spring_Project/OpenApiPrj/WebContent/WEB-INF/img" />
 </Context>

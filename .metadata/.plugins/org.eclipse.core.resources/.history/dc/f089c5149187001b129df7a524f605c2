@@ -1,0 +1,24 @@
+package WordCount;
+
+import java.io.IOException;
+
+import javax.naming.Context;
+import javax.xml.soap.Text;
+
+public class SumReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
+	
+	@Overrid
+	public void reduce (Text key, Iterable<IntWritable> values, Context context)
+		throws IOException, IntterruptedException{
+		
+		int WordCount = 0; 
+		
+		for(IntWritable value : values) {
+			wordCount += value.get()l;
+		}
+		
+		context.write(key, new IntWritable(wordCount));
+		
+	}
+
+}

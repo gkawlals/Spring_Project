@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import poly.dto.BoardDto;
+import poly.dto.WordAnalysisDTO;
 import poly.service.IBoardService;
+import poly.service.IWordAnalysisService;
 import poly.util.CmmUtil;
 
 @Controller
@@ -24,6 +27,9 @@ public class BoardController {
 	@Resource(name = "BoardService")
 	IBoardService BoardService;
 
+	@Resource(name = "WordAnalysisService")
+	IWordAnalysisService wordAnalysisService;
+	
 	@RequestMapping(value = "/board/BoardList")
 	public String BoardList(ModelMap model) {
 
@@ -46,7 +52,7 @@ public class BoardController {
 		return "/board/BoardList";
 	}
 	
-		@RequestMapping(value = "/board/doPost.do")
+	@RequestMapping(value = "/board/doPost.do")
 	public String doPost(HttpServletRequest request, ModelMap model) {
 
 		// 임시 설정 아이디
@@ -223,6 +229,36 @@ public class BoardController {
 		return rList;
 	}
 	
+	@RequestMapping(name="word/Insert_N")
+	public String insertData (HttpServletRequest request, ModelMap model, HttpSession session) {
+		
+		log.info( "N행시 Start ! ");
+		
+		String data_name = request.getParameter("data_name");
 
+		// 게시자, 게시글 제목, 게시긇 내용을 담아 서비스에 전송할 DTO객체 생성
+		WordAnalysisDTO pDTO = new WordAnalysisDTO();
+
+		pDTO.setData_name(data_name);
+
+		int res = wordAnalysisService.insertData(pDTO);
+
+		String msg = "";
+		String url = "/word/analysis";
+		if (res < 1) {
+			// 실패
+			msg = "다시 써라~";
+		} else {
+			// 성공
+			msg = "등록 완료";
+		}
+
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		log.info( "N행시 End ! ");
+		
+		return "board/BoardList";
+	}
 
 }

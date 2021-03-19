@@ -6,30 +6,32 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="mail"/>
 		<list key="findhistory">
-			<item value="InsertFoodInfo"/>
-			<item value="Movi"/>
-			<item value="MovieMapper"/>
-			<item value="MovicMapper"/>
-			<item value="MailService"/>
-			<item value="event"/>
-			<item value="undefined"/>
 			<item value="mail"/>
-			<item value="massage"/>
-			<item value="interceptor"/>
-			<item value="websocket"/>
-			<item value="ws"/>
-			<item value="replyEcho`"/>
-			<item value="replyEcho"/>
-			<item value="reply"/>
+			<item value="Exists"/>
+			<item value="Exisists"/>
+			<item value="Ex"/>
+			<item value="pwck"/>
+			<item value="searchList"/>
+			<item value="FileOutputStream"/>
+			<item value="resource"/>
+			<item value="servlet"/>
+			<item value="context"/>
+			<item value="webmvc"/>
+			<item value="text"/>
+			<item value="opensocket"/>
+			<item value="HashMap"/>
+			<item value="deWordAnalysis"/>
 		</list>
 		<list key="replacehistory">
+			<item value="name"/>
+			<item value="USER_NAME"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="621"/>
-		<item key="DIALOG_Y_ORIGIN" value="110"/>
+		<item key="DIALOG_X_ORIGIN" value="392"/>
+		<item key="DIALOG_Y_ORIGIN" value="419"/>
 		<item key="DIALOG_WIDTH" value="294"/>
 		<item key="DIALOG_HEIGHT" value="408"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>

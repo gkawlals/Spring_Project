@@ -9,7 +9,14 @@ public class UserDto {
 	private String user_no;
 	private String exists_yn;
 	private String user_in;
+	private String user_img;
 	
+	public String getUser_img() {
+		return user_img;
+	}
+	public void setUser_img(String user_img) {
+		this.user_img = user_img;
+	}
 	public String getUser_in() {
 		return user_in;
 	}

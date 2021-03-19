@@ -43,9 +43,5 @@
 			<value>text/html; charset=UTF-8</value>
 		</property>
 	</bean>
-		
-	<!-- 파일업로드 기능 -->		
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
-		p:maxUploadSize="104857600" p:maxInMemorySize="104857600" />
 
 </beans>
