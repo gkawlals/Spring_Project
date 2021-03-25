@@ -23,6 +23,7 @@ public class FoodService implements IFoodService{
 	@Resource(name="FoodMapper")
 	private IFoodMapper foodMapper;
 	
+
 	private Logger log = Logger.getLogger(this.getClass());
 	
 	
